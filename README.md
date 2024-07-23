@@ -21,18 +21,14 @@ You can pull and build the benchmark image from dockerhub with the following com
 
    2. Set environment variables in .env in root of project.
 
-   3. pull the benchmark image from dockerhub with:
+   3. Use the `start_benchmark.sh` script to pull the Docker image, start the container, and view logs interactively:
    ```
-    docker pull index.docker.io/akhilesh99/benchmark:latest
+   ./start_benchmark.sh
    ```
-   4. Run `docker compose up -d` to start the benchmark. This will start all of the services defined in the `compose.yaml` file.
 
-   ```
-      docker compose up -d 
-   ```
-   5. Run `docker compose logs -f questions`. This will print a Streamlit link to the benchmark dashboard to view progress.
+   4. Follow the interactive options provided by the script to pull the Docker image, start the container, and view logs.
 
-   6. To stop the benchmark, run `docker compose down`.
+   5. To stop the benchmark, run `docker compose down`.
 
 # Components
 
