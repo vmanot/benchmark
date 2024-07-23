@@ -13,9 +13,12 @@ project_root = os.path.dirname(os.path.abspath(__file__))
 sys.path.append(project_root)
 
 from search_benchmark.search.questions import main as process_questions
-from config import get_question_types, get_metrics, get_llms, get_providers, get_num_q
+from config import get_question_types, get_metrics, get_llms, get_providers, get_num_q, check_required_env_vars
 
 def run_benchmark(question_types, metrics, llms, providers, num_q):
+    # Check for required environment variables
+    check_required_env_vars()
+    
     # Generate a unique run ID
     run_id = str(uuid.uuid4())
     print(f"Run ID: {run_id}")

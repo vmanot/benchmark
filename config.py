@@ -66,3 +66,13 @@ def get_llms():
 
 def get_providers():
     return os.getenv('PROVIDERS', 'lumina,google_scholar,semantic_scholar').split(',')
+
+def check_required_env_vars():
+    required_vars = [
+        'NUM_Q', 'REDIS_URL', 'PG_DB_NAME', 'PG_USER', 'PG_PASSWORD', 'PG_HOST', 'PG_PORT',
+        'OPENAI_API_KEY', 'ANTHROPIC_API_KEY', 'EXA_API_KEY', 'SERP_API_KEY', 'SEMANTIC_SCHOLAR_API_KEY',
+        'API_URL', 'EXA_URL', 'EXA_CONTENT_URL', 'RERANKER_URL', 'QUESTION_TYPES', 'METRICS', 'LLMS', 'PROVIDERS'
+    ]
+    missing_vars = [var for var in required_vars if not os.getenv(var)]
+    if missing_vars:
+        raise EnvironmentError(f"Missing required environment variables: {', '.join(missing_vars)}")
