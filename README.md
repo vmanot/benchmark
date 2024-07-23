@@ -104,3 +104,36 @@ To run adminer, visit localhost:8080 and use the following credentials to log in
 - Username: postgres
 - Password: postrges
 - Database: postgres
+
+# Error Handling for Missing Environment Variables
+
+To ensure the benchmark runs smoothly, we have implemented error handling for missing environment variables. If any required environment variable is missing, the benchmark will gracefully error out with a clear message indicating which variables are missing. This helps prevent runtime errors and unexpected behavior.
+
+## Required Environment Variables
+
+The following environment variables are required for the benchmark to run:
+
+- `REDIS_URL`: URL for the Redis instance.
+- `PG_DB_NAME`: Name of the PostgreSQL database.
+- `PG_USER`: Username for the PostgreSQL database.
+- `PG_PASSWORD`: Password for the PostgreSQL database.
+- `PG_HOST`: Host for the PostgreSQL database.
+- `PG_PORT`: Port for the PostgreSQL database.
+- `OPENAI_API_KEY`: API key for OpenAI.
+- `ANTHROPIC_API_KEY`: API key for Anthropic.
+- `EXA_API_KEY`: API key for Exa.
+- `SERP_API_KEY`: API key for SERP.
+- `SEMANTIC_SCHOLAR_API_KEY`: API key for Semantic Scholar.
+- `API_URL`: API URL for Lumina.
+- `EXA_URL`: URL for Exa search.
+- `EXA_CONTENT_URL`: URL for Exa content.
+- `IMG_URL`: URL for the Docker image.
+- `IMG_NAME`: Name of the Docker image.
+- `RERANKER_URL`: URL for the reranker service (if using recursive search).
+- `QUESTION_TYPES`: Types of questions to use for benchmarking.
+- `METRICS`: Metrics to use for benchmarking.
+- `LLMS`: List of large language models to use for evaluation.
+- `PROVIDERS`: List of search providers to benchmark.
+- `NUM_Q`: Number of questions to use for benchmarking.
+
+Make sure to set these environment variables in your `.env` file before running the benchmark.
